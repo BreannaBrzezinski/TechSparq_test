@@ -1,0 +1,69 @@
+
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        tr {
+            border-bottom: solid #c7c7c7 1px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #ededed;
+        }
+        
+        tr:nth-child(odd) {
+            background-color: white;
+        }
+        
+        th {
+            font-weight: 500;
+            padding: .5rem 1rem;
+            text-align: left
+        }
+        
+        td {
+            font-size: 14px;
+            padding: .5rem 1rem;
+        }
+        
+        img {
+            width: 100px;
+        }
+        </style>
+    </head>
+    <body>
+        <table id="customer_table">
+            <thead>
+            <tr>
+                <th>Avatar</th>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Date Created</th>
+                </tr>
+            </thead>
+        </table>
+    </body>       
+<script>
+    $(document).ready(function(){
+       $.getJSON("https://5dc588200bbd050014fb8ae1.mockapi.io/assessment", function(data){
+          var customer_data = '';
+           $.each(data, function(key, value){
+               customer_data += '<tr>';
+               customer_data += '<td><img src= "' +value.avatar+ '"></td>';
+               customer_data += '<td>'+value.name+'</td>';
+               customer_data += '<td>'+value.id+'</td>';
+               customer_data += '<td>'+value.createdAt+'</td>';
+               customer_data += '</tr>';
+
+           });
+           $('#customer_table').append(customer_data);
+       }); 
+    });
+    </script>
+</html>

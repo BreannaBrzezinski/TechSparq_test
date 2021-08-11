@@ -1,0 +1,146 @@
+
+$white: #ffffff;
+$darkgrey: #333;
+$mediumgrey: #ddd;
+$lightgrey: #888888;
+$green: #0FC57C;
+$red: #CF2323;
+$blue: #0000FF;
+
+$mainFont: Lato, sans-serif;
+
+body {
+    background: $white;
+    color: $darkgrey;
+    font-family: $mainFont;
+    margin: 0;   
+}
+    
+.container {
+    display: block;
+}
+
+ul {
+    margin: 0px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    li * {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    li {
+        clear: both;
+        list-style: none;
+        overflow: hidden;
+        padding: 20px 0px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    li > label {
+        font-size:18px;
+        line-height: 40px;
+        width: 237px;
+        padding:0 0 0 11px;
+    }
+
+    li >  input[type="text"] {
+        width: 226px;
+    }
+
+    li > .delete:hover {
+        color: $red;
+    }
+    
+      /* Edit Task */
+    li input[type=text], li.editMode label {
+        display: none;
+    }
+
+    li.editMode input[type=text] {
+        display: inline-flex;
+    }
+}
+
+input, button {
+    outline: none;
+}
+
+button {
+    background: none;
+    border: 0;
+    color: $lightgrey;
+    cursor: pointer;;
+    font-size: 15px;
+    margin: 10px 0 0;
+    width: 60px;
+}
+
+button:hover, button:focus {
+    color: $darkgrey;
+}
+
+  /* Heading */
+h3 {
+    color: $darkgrey;
+    font-weight: 700;
+    font-size: 15px;
+    border-bottom: 2px solid $darkgrey;
+    padding: 30px 0 10px;
+    margin: 0px;
+    text-transform: uppercase;
+}
+
+input[type="text"]  {
+    margin: 0;
+    font-size: 18px;
+    line-height: 18px;
+    height: 18px;
+    padding: 10px;
+    border: 1px solid $mediumgrey;
+    background: $white;
+    border-radius: 6px;
+    color: $lightgrey;
+}
+
+input:focus {
+    color: $darkgrey;
+}
+
+input[type="checkbox"] {
+    margin: 0 10px;
+  }
+    
+input[type="checkbox"]:focus {
+    outline: px solid $blue;
+}
+
+  /* New Task */
+#new-task   {
+    margin: 10px 2px;
+}
+
+.addItem button:hover {
+    color: $green;
+}
+
+  /* Completed */
+#completed-tasks label {
+    text-decoration: line-through;
+    color: $darkgrey;
+  }
+
+@media only screen and (min-width: 375px) {
+    body {
+        display: block;
+        width: 600px;
+        margin: 100px auto 0;
+    }
+    
+    input#new-task   {
+        width: 318px;
+    }
+}
